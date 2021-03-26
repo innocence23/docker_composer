@@ -10,7 +10,8 @@ ADD install-php-extensions /usr/local/bin/
 # Extensions Installation:
 # RUN docker-php-ext-install \
 # 用官方三方安装扩展 https://github.com/mlocati/docker-php-extension-installer
-RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
+# RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
+RUN chmod +x /usr/local/bin/install-php-extensions && \
         install-php-extensions \
         bcmath \
         pdo_mysql \
@@ -20,12 +21,10 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
         pcntl \
         opcache \
         zip \
-        redis \
         mongodb \
         memcached \
-        swoole
-
-
+        swoole \
+        redis
 
 ## Install composer and change it's cache home && repo.packagist
 RUN curl -o /usr/local/bin/composer https://mirrors.aliyun.com/composer/composer.phar \
